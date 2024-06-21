@@ -1,10 +1,10 @@
-from gendiff.scripts import (
+from gendiff import (
     generate_diff,
     open_file
 )
 
 
-__all__ = (
+__all__ = [
     'generate_diff',
     'open_file',
-)
+]
