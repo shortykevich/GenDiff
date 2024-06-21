@@ -1,0 +1,23 @@
+name: user-tests-and-linter
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: "Installing Poetry:"
+        uses: snok/install-poetry@v1
+      - name: "Installing dependencies:"
+        run: make install
+      - name: "Making a build:"
+        run: make build
+      - name: "Installing package:"
+        run: make package-install
+      - name: "Running tests:"
+        run: make tests-run
+      - name: "Running linter:"
+        run: make lint
