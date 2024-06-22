@@ -19,6 +19,20 @@ def json_files():
     }
 
 
+def test_open_file():
+    assert open_file("JSON_files/file1.json") == {
+        "host": "hexlet.io",
+        "timeout": 50,
+        "proxy": "123.234.53.22",
+        "follow": False
+    }
+    assert open_file("JSON_files/file2.json") == {
+        "timeout": 20,
+        "verbose": True,
+        "host": "hexlet.io"
+    }
+
+
 def test_generate_diff(json_files):
     file1, file2 = json_files
     assert generate_diff(file1, file2) == (
@@ -60,5 +74,5 @@ def test_generate_diff(json_files):
 
 
 __all__ = [
-    'open_file',
+    'open_file'
 ]

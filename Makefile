@@ -19,5 +19,8 @@ package-reinstall:
 lint:
 		poetry run flake8 gendiff
 
-tests-run:
-		poetry run pytest
+tests-coverage:
+		poetry run coverage run -m pytest
+
+format-coverage:
+		poetry run coverage lcov -o lcov.info

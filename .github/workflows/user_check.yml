@@ -9,15 +9,26 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-      - name: "Installing Poetry:"
+      - name: Installing Poetry
         uses: snok/install-poetry@v1
-      - name: "Installing dependencies:"
+      - name: Installing dependencies
         run: make install
-      - name: "Making a build:"
+      - name: Making a build
         run: make build
-      - name: "Installing package:"
+      - name: Installing package
         run: make package-install
-      - name: "Running tests:"
-        run: make tests-run
-      - name: "Running linter:"
+      - name: Running linter
         run: make lint
+      - name: Installing test-reporter
+        run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 >./cc-test-reporter
+      - run: chmod +x cc-test-reporter
+      - name: Testing and formating coverage
+        run: make tests-coverage
+      - run: make format-coverage
+      - name: Publish code coverage
+        uses: paambaati/codeclimate-action@v8.0.0
+        env:
+          CC_TEST_REPORTER_ID: 7e2cc89bc3c5c54e096e4e5a9a79c0937d401cdb5ac461ace1372ef4e9d2927d
+        with:
+          coverageLocations: |
+            ${{github.workspace}}/lcov.info:lcov

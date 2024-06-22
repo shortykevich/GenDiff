@@ -2,12 +2,7 @@ import json
 
 
 def format_value(value):
-    if isinstance(value, bool):
-        return str(value).lower()
-    elif value is None:
-        return 'None'
-    else:
-        return str(value)
+    return str(value).lower() if isinstance(value, bool) else str(value)
 
 
 def open_file(file_path: str) -> dict:
@@ -16,9 +11,8 @@ def open_file(file_path: str) -> dict:
 
 def generate_diff(file1: dict,
                   file2: dict) -> str:
-    sorted_files_union = dict(sorted(
-        (file1 | file2).items()
-    ))
+    files_union = (file1 | file2).items()
+    sorted_files_union = dict(sorted(files_union))
 
     diffs = []
     for key, val in sorted_files_union.items():
@@ -38,8 +32,3 @@ def generate_diff(file1: dict,
                          f"+ {key}: {formated_val}")
 
     return '{\n' + '\n'.join(diffs) + '\n}'
-
-
-print(json.load(open("JSON_files/file1.json")))
-print()
-print(json.load(open("JSON_files/file2.json")))
