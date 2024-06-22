@@ -34,8 +34,8 @@ def generate_diff(file1: dict,
         elif is_key_in_file1 and val_in_file1 == val:
             diffs.append(f"  {key}: {formated_val}")
         elif is_key_in_file1 and val_in_file1 != val:
-
-            diffs.append(f"- {key}: {format_value(file1[key])}\n"
+            file1_formatted_val = format_value(val_in_file1)
+            diffs.append(f"- {key}: {file1_formatted_val}\n"
                          f"+ {key}: {formated_val}")
 
     return '{\n' + '\n'.join(diffs) + '\n}'
