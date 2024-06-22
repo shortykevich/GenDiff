@@ -7,26 +7,18 @@ from tests import (
 
 @pytest.fixture()
 def json_files():
-    return {
-        "host": "hexlet.io",
-        "timeout": 50,
-        "proxy": "123.234.53.22",
-        "follow": False
-    }, {
-        "timeout": 20,
-        "verbose": True,
-        "host": "hexlet.io"
-    }
+    return (open_file('tests/assets/file1.json'),
+            open_file('tests/assets/file2.json'))
 
 
 def test_open_file():
-    assert open_file("JSON_files/file1.json") == {
+    assert open_file("tests/assets/file1.json") == {
         "host": "hexlet.io",
         "timeout": 50,
         "proxy": "123.234.53.22",
         "follow": False
     }
-    assert open_file("JSON_files/file2.json") == {
+    assert open_file("tests/assets/file2.json") == {
         "timeout": 20,
         "verbose": True,
         "host": "hexlet.io"

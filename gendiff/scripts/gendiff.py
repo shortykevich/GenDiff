@@ -9,13 +9,19 @@ def open_file(file_path: str) -> dict:
     return json.load(open(file_path))
 
 
+def merge_and_sort_files(file1: dict,
+                         file2: dict) -> dict:
+    merged_files = file1 | file2
+    sorted_merged_files = dict(sorted(merged_files.items()))
+    return sorted_merged_files
+
+
 def generate_diff(file1: dict,
                   file2: dict) -> str:
-    files_union = (file1 | file2).items()
-    sorted_files_union = dict(sorted(files_union))
+    merged_files = merge_and_sort_files(file1, file2)
 
     diffs = []
-    for key, val in sorted_files_union.items():
+    for key, val in merged_files.items():
         is_key_in_file1 = key in file1
         is_key_in_file2 = key in file2
         val_in_file1 = file1.get(key)
@@ -28,6 +34,7 @@ def generate_diff(file1: dict,
         elif is_key_in_file1 and val_in_file1 == val:
             diffs.append(f"  {key}: {formated_val}")
         elif is_key_in_file1 and val_in_file1 != val:
+
             diffs.append(f"- {key}: {format_value(file1[key])}\n"
                          f"+ {key}: {formated_val}")
 
