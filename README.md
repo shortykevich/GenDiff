@@ -6,5 +6,5 @@
 
 <h3>Installation and basic usage with JSON files:</h3>
 [![asciicast](https://asciinema.org/a/e8QGoqTDKXnKXgat7z8iVel5s.svg)](https://asciinema.org/a/e8QGoqTDKXnKXgat7z8iVel5s)
-<h3>Basic usage with plain YAML files:</h3>
+<h3>Basic usage with YAML files:</h3>
 [![asciicast](https://asciinema.org/a/aKGw6OTVmMH7PycsHTKkn8YBo.svg)](https://asciinema.org/a/aKGw6OTVmMH7PycsHTKkn8YBo)

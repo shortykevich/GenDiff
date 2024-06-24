@@ -1,12 +1,13 @@
 from gendiff.parser import merge_and_sort_files
 
 
+def format_value(value):
+    return str(value).lower() if isinstance(value, bool) else str(value)
+
+
 def generate_diff(file1: dict,
                   file2: dict) -> str:
     merged_files = merge_and_sort_files(file1, file2)
-
-    def format_value(value):
-        return str(value).lower() if isinstance(value, bool) else str(value)
 
     diffs = []
     for key, val in merged_files.items():

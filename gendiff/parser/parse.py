@@ -15,7 +15,11 @@ def get_arguments():
 
 def open_file(file_path: str) -> dict:
     with open(file_path, 'r') as file:
-        return json.load(file) if file_path.endswith('.json') else yaml.safe_load(file)
+        return (
+            json.load(file)
+            if file_path.endswith('.json')
+            else yaml.safe_load(file)
+        )
 
 
 def merge_and_sort_files(file1: dict,
