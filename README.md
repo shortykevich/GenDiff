@@ -5,6 +5,6 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4f5a103282e38804c5ae/test_coverage)](https://codeclimate.com/github/shortykevich/python-project-50/test_coverage)
 
 <h3>Installation and basic usage with JSON files:</h3>
-[![asciicast](https://asciinema.org/a/e8QGoqTDKXnKXgat7z8iVel5s.svg)](https://asciinema.org/a/e8QGoqTDKXnKXgat7z8iVel5s)
+<a href="https://asciinema.org/a/e8QGoqTDKXnKXgat7z8iVel5s" target="_blank"><img src="https://asciinema.org/a/e8QGoqTDKXnKXgat7z8iVel5s.svg" /></a>
 <h3>Basic usage with YAML files:</h3>
-[![asciicast](https://asciinema.org/a/aKGw6OTVmMH7PycsHTKkn8YBo.svg)](https://asciinema.org/a/aKGw6OTVmMH7PycsHTKkn8YBo)
+<a href="https://asciinema.org/a/aKGw6OTVmMH7PycsHTKkn8YBo" target="_blank"><img src="https://asciinema.org/a/aKGw6OTVmMH7PycsHTKkn8YBo.svg" /></a>
