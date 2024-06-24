@@ -1,14 +1,12 @@
-from gendiff.scripts import generate_diff
-from gendiff.parser import (
+from gendiff.parser.parse import (
     open_file,
     get_arguments,
     merge_and_sort_files
 )
 
 
-__all__ = (
-    'generate_diff',
+__all__ = [
     'open_file',
     'get_arguments',
     'merge_and_sort_files',
-)
+]

@@ -4,5 +4,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/4f5a103282e38804c5ae/maintainability)](https://codeclimate.com/github/shortykevich/python-project-50/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4f5a103282e38804c5ae/test_coverage)](https://codeclimate.com/github/shortykevich/python-project-50/test_coverage)
 
-<h3>Installation and basic usage with plain JSON:</h3>
-<a href="https://asciinema.org/a/LLU1eO8vxOwkSJZ67E8owLAOB" target="_blank"><img src="https://asciinema.org/a/LLU1eO8vxOwkSJZ67E8owLAOB.svg" /></a>
+<h3>Installation and basic usage with JSON files:</h3>
+[![asciicast](https://asciinema.org/a/e8QGoqTDKXnKXgat7z8iVel5s.svg)](https://asciinema.org/a/e8QGoqTDKXnKXgat7z8iVel5s)
+<h3>Basic usage with plain YAML files:</h3>
+[![asciicast](https://asciinema.org/a/aKGw6OTVmMH7PycsHTKkn8YBo.svg)](https://asciinema.org/a/aKGw6OTVmMH7PycsHTKkn8YBo)

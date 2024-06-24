@@ -1,9 +1,6 @@
-from gendiff.scripts.gendiff import (
-    generate_diff, open_file
-)
+from gendiff.scripts.gendiff import generate_diff
 
 
 __all__ = (
     'generate_diff',
-    'open_file',
 )
