@@ -1,4 +1,4 @@
-from gendiff.scripts import generate_diff
+from gendiff.core import generate_diff
 from gendiff.parser import (
     open_file,
     get_arguments,

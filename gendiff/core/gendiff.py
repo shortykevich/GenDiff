@@ -1,4 +1,4 @@
-from gendiff.parser import merge_and_sort_files
+from gendiff import merge_and_sort_files
 
 
 def format_value(value):
