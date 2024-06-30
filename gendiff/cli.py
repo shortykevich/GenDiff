@@ -11,8 +11,11 @@ def main():
 
     first_file = open_file(args.first_file)
     second_file = open_file(args.second_file)
+    diff_format = args.format
 
-    print(generate_diff(first_file, second_file))
+    diff = generate_diff(first_file, second_file)
+
+    print(diff_format(diff))
 
 
 if __name__ == "__main__":

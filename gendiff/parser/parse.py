@@ -1,6 +1,7 @@
 import json
 import yaml
 import argparse
+from gendiff.core.format import stylish_format
 
 
 def get_arguments():
@@ -9,7 +10,11 @@ def get_arguments():
     )
     parser.add_argument("first_file")
     parser.add_argument("second_file")
-    parser.add_argument("-f", "--format", help="set format of output")
+    parser.add_argument(
+        "-f", "--format",
+        help="set format of output",
+        default=stylish_format
+    )
     return parser.parse_args()
 
 

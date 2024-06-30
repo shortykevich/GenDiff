@@ -8,3 +8,5 @@
 <a href="https://asciinema.org/a/e8QGoqTDKXnKXgat7z8iVel5s" target="_blank"><img src="https://asciinema.org/a/e8QGoqTDKXnKXgat7z8iVel5s.svg" /></a>
 <h3>Basic usage with YAML files:</h3>
 <a href="https://asciinema.org/a/aKGw6OTVmMH7PycsHTKkn8YBo" target="_blank"><img src="https://asciinema.org/a/aKGw6OTVmMH7PycsHTKkn8YBo.svg" /></a>
+<h3>Using nested JSON and YAML</h3>
+<a href="https://asciinema.org/a/u59fKbFevVGJ741JVpyIjfIjj" target="_blank"><img src="https://asciinema.org/a/u59fKbFevVGJ741JVpyIjfIjj.svg" /></a>
