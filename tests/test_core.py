@@ -43,15 +43,22 @@ def get_expected_string(path):
         return expected_string.read()
 
 
-def test_generate_diff(plane_json_files, plane_yml_files):
-    json_file1, json_file2 = plane_json_files
-    yml_file1, yml_file2 = plane_yml_files
+def test_generate_diff(plane_json_files, plane_yml_files,
+                       nested_json_files, nested_yml_files):
+    p_json_file1, p_json_file2 = plane_json_files
+    p_yml_file1, p_yml_file2 = plane_yml_files
 
-    yml_diff = generate_diff(yml_file1, yml_file2)
-    json_diff = generate_diff(json_file1, json_file2)
+    n_json_file1, n_json_file2 = nested_json_files
+    n_yml_file1, n_yml_file2 = nested_yml_files
 
-    yml_diff_reversed = generate_diff(yml_file2, yml_file1)
-    json_diff_reversed = generate_diff(json_file2, json_file1)
+    yml_diff = generate_diff(p_yml_file1, p_yml_file2)
+    json_diff = generate_diff(p_json_file1, p_json_file2)
+
+    yml_diff_reversed = generate_diff(p_yml_file2, p_yml_file1)
+    json_diff_reversed = generate_diff(p_json_file2, p_json_file1)
+
+    json_nested_diff = generate_diff(n_json_file1, n_json_file2)
+    yml_nested_diff = generate_diff(n_yml_file1, n_yml_file2)
 
     assert stylish_format(json_diff) == get_expected_string(
         "tests/fixtures/expected/plane_expected.txt"
@@ -65,9 +72,12 @@ def test_generate_diff(plane_json_files, plane_yml_files):
     assert stylish_format(yml_diff_reversed) == get_expected_string(
         "tests/fixtures/expected/plane_expected_reversed.txt"
     )
-    # assert generate_diff(yml_file2, json_file1) == get_expected_string(
-    #     "tests/fixtures/expected/nested_expected.txt"
-    # )
+    assert stylish_format(json_nested_diff) == get_expected_string(
+        "tests/fixtures/expected/nested_expected.txt"
+    )
+    assert stylish_format(yml_nested_diff) == get_expected_string(
+        "tests/fixtures/expected/nested_expected.txt"
+    )
 
 
 def test_open_file():
