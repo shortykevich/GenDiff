@@ -1,21 +1,6 @@
 import json
 import yaml
 import argparse
-from gendiff.core.format import stylish_format
-
-
-def get_arguments():
-    parser = argparse.ArgumentParser(
-        description='Compares two configuration files and shows a difference.'
-    )
-    parser.add_argument("first_file")
-    parser.add_argument("second_file")
-    parser.add_argument(
-        "-f", "--format",
-        help="set format of output",
-        default=stylish_format
-    )
-    return parser.parse_args()
 
 
 def open_file(file_path: str) -> dict:
@@ -27,8 +12,15 @@ def open_file(file_path: str) -> dict:
         )
 
 
-def merge_and_sort_files(file1: dict,
-                         file2: dict) -> dict:
-    merged_files = file1 | file2
-    sorted_merged_files = dict(sorted(merged_files.items()))
-    return sorted_merged_files
+def get_arguments():
+    parser = argparse.ArgumentParser(
+        description='Compares two configuration files and shows a difference.'
+    )
+    parser.add_argument(
+        "-f", "--format",
+        help="set format of output",
+        default="stylish",
+    )
+    parser.add_argument("first_file")
+    parser.add_argument("second_file")
+    return parser.parse_args()

@@ -1,12 +1,1 @@
-ACTIONS = {
-    "added": "+ ",
-    "removed": "- "
-}
-
-
-def get_added():
-    return ACTIONS["added"]
-
-
-def get_removed():
-    return ACTIONS["removed"]
+NOT_FOUND = '*VALUE NOT FOUND*'

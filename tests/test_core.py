@@ -2,12 +2,13 @@ import pytest
 from gendiff import (
     generate_diff,
     open_file,
-    stylish_format
+    stylish,
+    plain
 )
 
 
 @pytest.fixture()
-def plane_json_files():
+def plane_json():
     return (
         open_file('tests/fixtures/plane_files/file1.json'),
         open_file('tests/fixtures/plane_files/file2.json')
@@ -15,7 +16,7 @@ def plane_json_files():
 
 
 @pytest.fixture()
-def plane_yml_files():
+def plane_yml():
     return (
         open_file('tests/fixtures/plane_files/file1.yml'),
         open_file('tests/fixtures/plane_files/file2.yaml')
@@ -23,7 +24,7 @@ def plane_yml_files():
 
 
 @pytest.fixture()
-def nested_json_files():
+def nested_json():
     return (
         open_file('tests/fixtures/nested_files/nested1.json'),
         open_file('tests/fixtures/nested_files/nested2.json')
@@ -31,7 +32,7 @@ def nested_json_files():
 
 
 @pytest.fixture()
-def nested_yml_files():
+def nested_yml():
     return (
         open_file('tests/fixtures/nested_files/nested1.yml'),
         open_file('tests/fixtures/nested_files/nested2.yml')
@@ -43,40 +44,39 @@ def get_expected_string(path):
         return expected_string.read()
 
 
-def test_generate_diff(plane_json_files, plane_yml_files,
-                       nested_json_files, nested_yml_files):
-    p_json_file1, p_json_file2 = plane_json_files
-    p_yml_file1, p_yml_file2 = plane_yml_files
+def test_generate_diff(plane_json, plane_yml,
+                       nested_json, nested_yml):
 
-    n_json_file1, n_json_file2 = nested_json_files
-    n_yml_file1, n_yml_file2 = nested_yml_files
+    plane_json1, plane_json2 = plane_json
+    plane_yml1, plane_yml2 = plane_yml
 
-    yml_diff = generate_diff(p_yml_file1, p_yml_file2)
-    json_diff = generate_diff(p_json_file1, p_json_file2)
+    nested_json1, nested_json2 = nested_json
+    nested_yml1, nested_yml2 = nested_yml
 
-    yml_diff_reversed = generate_diff(p_yml_file2, p_yml_file1)
-    json_diff_reversed = generate_diff(p_json_file2, p_json_file1)
+    assert generate_diff(plane_json1, plane_json2, stylish) == get_expected_string(
+        "tests/fixtures/expected/stylish_regular_expected.txt"
+    )
+    assert generate_diff(plane_yml1, plane_yml2, stylish) == get_expected_string(
+        "tests/fixtures/expected/stylish_regular_expected.txt"
+    )
+    assert generate_diff(nested_json1, nested_json2, stylish) == get_expected_string(
+        "tests/fixtures/expected/stylish_nested_expected.txt"
+    )
+    assert generate_diff(nested_yml1, nested_yml2, stylish) == get_expected_string(
+        "tests/fixtures/expected/stylish_nested_expected.txt"
+    )
 
-    json_nested_diff = generate_diff(n_json_file1, n_json_file2)
-    yml_nested_diff = generate_diff(n_yml_file1, n_yml_file2)
-
-    assert stylish_format(json_diff) == get_expected_string(
-        "tests/fixtures/expected/plane_expected.txt"
+    assert generate_diff(plane_json1, plane_json2, plain) == get_expected_string(
+        "tests/fixtures/expected/plain_regular_expected.txt"
     )
-    assert stylish_format(json_diff_reversed) == get_expected_string(
-        "tests/fixtures/expected/plane_expected_reversed.txt"
+    assert generate_diff(plane_yml1, plane_yml2, plain) == get_expected_string(
+        "tests/fixtures/expected/plain_regular_expected.txt"
     )
-    assert stylish_format(yml_diff) == get_expected_string(
-        "tests/fixtures/expected/plane_expected.txt"
+    assert generate_diff(nested_json1, nested_json2, plain) == get_expected_string(
+        "tests/fixtures/expected/plain_nested_expected.txt"
     )
-    assert stylish_format(yml_diff_reversed) == get_expected_string(
-        "tests/fixtures/expected/plane_expected_reversed.txt"
-    )
-    assert stylish_format(json_nested_diff) == get_expected_string(
-        "tests/fixtures/expected/nested_expected.txt"
-    )
-    assert stylish_format(yml_nested_diff) == get_expected_string(
-        "tests/fixtures/expected/nested_expected.txt"
+    assert generate_diff(nested_yml1, nested_yml2, plain) == get_expected_string(
+        "tests/fixtures/expected/plain_nested_expected.txt"
     )
 
 
@@ -87,8 +87,8 @@ def test_open_file():
         "proxy": "123.234.53.22",
         "follow": False
     }
-    assert (open_file("tests/fixtures/plane_files/file2.yaml") == {
+    assert open_file("tests/fixtures/plane_files/file2.yaml") == {
         "timeout": 20,
         "verbose": True,
         "host": "hexlet.io"
-    })
+    }
