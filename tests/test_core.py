@@ -26,16 +26,16 @@ def plane_yml():
 @pytest.fixture()
 def nested_json():
     return (
-        open_file('tests/fixtures/nested_files/nested1.json'),
-        open_file('tests/fixtures/nested_files/nested2.json')
+        open_file('tests/fixtures/nested_files/file1.json'),
+        open_file('tests/fixtures/nested_files/file2.json')
     )
 
 
 @pytest.fixture()
 def nested_yml():
     return (
-        open_file('tests/fixtures/nested_files/nested1.yml'),
-        open_file('tests/fixtures/nested_files/nested2.yml')
+        open_file('tests/fixtures/nested_files/file1.yml'),
+        open_file('tests/fixtures/nested_files/file2.yml')
     )
 
 
