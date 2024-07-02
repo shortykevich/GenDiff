@@ -12,3 +12,5 @@
 <a href="https://asciinema.org/a/u59fKbFevVGJ741JVpyIjfIjj" target="_blank"><img src="https://asciinema.org/a/u59fKbFevVGJ741JVpyIjfIjj.svg" /></a>
 <h3>Added plain output format</h3>
 <a href="https://asciinema.org/a/ocw4hyPMLhDtfzFMElu3Q6nzq" target="_blank"><img src="https://asciinema.org/a/ocw4hyPMLhDtfzFMElu3Q6nzq.svg" /></a>
+<h3>Added json output format</h3>
+<a href="https://asciinema.org/a/RV2Plu226Kv9rRI0tHV4Sc813" target="_blank"><img src="https://asciinema.org/a/RV2Plu226Kv9rRI0tHV4Sc813.svg" /></a>
