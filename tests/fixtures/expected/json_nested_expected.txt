@@ -1,0 +1,136 @@
+[
+    {
+        "key": "common",
+        "values": [
+            {
+                "key": "follow",
+                "values": {
+                    "init val": "*VALUE NOT FOUND*",
+                    "new val": false
+                }
+            },
+            {
+                "key": "setting1",
+                "values": {
+                    "init val": "Value 1",
+                    "new val": "Value 1"
+                }
+            },
+            {
+                "key": "setting2",
+                "values": {
+                    "init val": 200,
+                    "new val": "*VALUE NOT FOUND*"
+                }
+            },
+            {
+                "key": "setting3",
+                "values": {
+                    "init val": true,
+                    "new val": null
+                }
+            },
+            {
+                "key": "setting4",
+                "values": {
+                    "init val": "*VALUE NOT FOUND*",
+                    "new val": "blah blah"
+                }
+            },
+            {
+                "key": "setting5",
+                "values": {
+                    "init val": "*VALUE NOT FOUND*",
+                    "new val": {
+                        "key5": "value5"
+                    }
+                }
+            },
+            {
+                "key": "setting6",
+                "values": [
+                    {
+                        "key": "doge",
+                        "values": [
+                            {
+                                "key": "wow",
+                                "values": {
+                                    "init val": "",
+                                    "new val": "so much"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "key": "key",
+                        "values": {
+                            "init val": "value",
+                            "new val": "value"
+                        }
+                    },
+                    {
+                        "key": "ops",
+                        "values": {
+                            "init val": "*VALUE NOT FOUND*",
+                            "new val": "vops"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "key": "group1",
+        "values": [
+            {
+                "key": "baz",
+                "values": {
+                    "init val": "bas",
+                    "new val": "bars"
+                }
+            },
+            {
+                "key": "foo",
+                "values": {
+                    "init val": "bar",
+                    "new val": "bar"
+                }
+            },
+            {
+                "key": "nest",
+                "values": {
+                    "init val": {
+                        "key": "value"
+                    },
+                    "new val": "str"
+                }
+            }
+        ]
+    },
+    {
+        "key": "group2",
+        "values": {
+            "init val": {
+                "abc": 12345,
+                "deep": {
+                    "id": 45
+                }
+            },
+            "new val": "*VALUE NOT FOUND*"
+        }
+    },
+    {
+        "key": "group3",
+        "values": {
+            "init val": "*VALUE NOT FOUND*",
+            "new val": {
+                "deep": {
+                    "id": {
+                        "number": 45
+                    }
+                },
+                "fee": 100500
+            }
+        }
+    }
+]

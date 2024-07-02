@@ -5,7 +5,8 @@ from gendiff.parser import (
 from gendiff.core import (
     generate_diff,
     stylish,
-    plain
+    plain,
+    json
 )
 
 
@@ -14,5 +15,6 @@ __all__ = (
     'open_file',
     'stylish',
     'plain',
+    'json',
     'get_arguments',
 )

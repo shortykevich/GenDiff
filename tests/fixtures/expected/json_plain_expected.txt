@@ -1,0 +1,37 @@
+[
+    {
+        "key": "follow",
+        "values": {
+            "init val": false,
+            "new val": "*VALUE NOT FOUND*"
+        }
+    },
+    {
+        "key": "host",
+        "values": {
+            "init val": "hexlet.io",
+            "new val": "hexlet.io"
+        }
+    },
+    {
+        "key": "proxy",
+        "values": {
+            "init val": "123.234.53.22",
+            "new val": "*VALUE NOT FOUND*"
+        }
+    },
+    {
+        "key": "timeout",
+        "values": {
+            "init val": 50,
+            "new val": 20
+        }
+    },
+    {
+        "key": "verbose",
+        "values": {
+            "init val": "*VALUE NOT FOUND*",
+            "new val": true
+        }
+    }
+]

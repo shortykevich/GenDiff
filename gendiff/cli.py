@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 from gendiff.core import (
     generate_diff,
-    plain
+    plain,
+    json
 )
 from gendiff.parser import (
     open_file,
@@ -18,6 +19,8 @@ def main():
     match args.format:
         case 'plain':
             print(generate_diff(first_file, second_file, plain))
+        case 'json':
+            print(generate_diff(first_file, second_file, json))
         case _:
             print(generate_diff(first_file, second_file))
 

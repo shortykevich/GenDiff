@@ -3,23 +3,24 @@ from gendiff import (
     generate_diff,
     open_file,
     stylish,
-    plain
+    plain,
+    json
 )
 
 
 @pytest.fixture()
 def plane_json():
     return (
-        open_file('tests/fixtures/plane_files/file1.json'),
-        open_file('tests/fixtures/plane_files/file2.json')
+        open_file('tests/fixtures/plain/file1.json'),
+        open_file('tests/fixtures/plain/file2.json')
     )
 
 
 @pytest.fixture()
 def plane_yml():
     return (
-        open_file('tests/fixtures/plane_files/file1.yml'),
-        open_file('tests/fixtures/plane_files/file2.yaml')
+        open_file('tests/fixtures/plain/file1.yml'),
+        open_file('tests/fixtures/plain/file2.yaml')
     )
 
 
@@ -79,15 +80,22 @@ def test_generate_diff(plane_json, plane_yml,
         "tests/fixtures/expected/plain_nested_expected.txt"
     )
 
+    assert generate_diff(plane_json1, plane_json2, json) == get_expected_string(
+        "tests/fixtures/expected/json_plain_expected.txt"
+    )
+    assert generate_diff(nested_json1, nested_json2, json) == get_expected_string(
+        "tests/fixtures/expected/json_nested_expected.txt"
+    )
+
 
 def test_open_file():
-    assert open_file("tests/fixtures/plane_files/file1.json") == {
+    assert open_file("tests/fixtures/plain/file1.json") == {
         "host": "hexlet.io",
         "timeout": 50,
         "proxy": "123.234.53.22",
         "follow": False
     }
-    assert open_file("tests/fixtures/plane_files/file2.yaml") == {
+    assert open_file("tests/fixtures/plain/file2.yaml") == {
         "timeout": 20,
         "verbose": True,
         "host": "hexlet.io"
