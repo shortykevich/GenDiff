@@ -6,10 +6,11 @@ from gendiff.parser import get_arguments
 def main():
     args = get_arguments()
 
-    first_file = args.first_file
-    second_file = args.second_file
+    first_file = args.file1
+    second_file = args.file2
+    formater = args.format
 
-    print(generate_diff(first_file, second_file))
+    print(generate_diff(first_file, second_file, formater))
 
 
 if __name__ == "__main__":

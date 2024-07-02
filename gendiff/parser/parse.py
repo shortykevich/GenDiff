@@ -14,13 +14,18 @@ def open_file(file_path: str) -> dict:
 
 def get_arguments():
     parser = argparse.ArgumentParser(
-        description='Compares two configuration files and shows a difference.'
+        description='Compares two configuration files and shows a difference.',
+        usage="%(prog)s [options] <filepath1> <filepath2>"
     )
     parser.add_argument(
         "-f", "--format",
-        help="set format of output",
+        help="set format type of output [stylish, plain, json]"
+             "(default: stylish)",
+        metavar="[type]",
+        choices=['stylish', 'plain', 'json'],
         default="stylish",
+        required=False
     )
-    parser.add_argument("first_file")
-    parser.add_argument("second_file")
+    parser.add_argument("file1", help="Path to first file")
+    parser.add_argument("file2", help="Path to second file")
     return parser.parse_args()

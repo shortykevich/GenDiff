@@ -16,10 +16,10 @@ def stylish_val(value, depth, indent="    "):
     strs = ["{"]
     for key, val in value.items():
         if isinstance(val, dict):
-            strs.append(f"{indent * depth}{key}: {stylish_val(val, depth+1)}")
+            strs.append(f"{indent * depth}{key}: {stylish_val(val, depth + 1)}")
         else:
             strs.append(f"{indent * depth}{key}: {val}")
-    strs.append(f"{indent * (depth-1)}" + "}")
+    strs.append(f"{indent * (depth - 1)}" + "}")
 
     return '\n'.join(strs)
 
@@ -32,7 +32,7 @@ def stylish(tree, depth=1, sep="    "):
         val = get_diff_values(diff)
 
         if isinstance(val, list):
-            strs.append(f"{indent}{key}: {stylish(val, depth+1)}")
+            strs.append(f"{indent}{key}: {stylish(val, depth + 1)}")
             continue
 
         init_val = get_diff_init_value(val)
@@ -41,14 +41,14 @@ def stylish(tree, depth=1, sep="    "):
         removed = indent[:-2] + '- '
 
         if init_val is NOT_FOUND:  # Added
-            strs.append(f"{added}{key}: {stylish_val(new_val, depth+1)}")
+            strs.append(f"{added}{key}: {stylish_val(new_val, depth + 1)}")
         elif new_val is NOT_FOUND:  # Removed
-            strs.append(f"{removed}{key}: {stylish_val(init_val, depth+1)}")
+            strs.append(f"{removed}{key}: {stylish_val(init_val, depth + 1)}")
         elif init_val == new_val:  # Unchanched
-            strs.append(f"{indent}{key}: {stylish_val(init_val, depth+1)}")
+            strs.append(f"{indent}{key}: {stylish_val(init_val, depth + 1)}")
         else:  # Updated
-            strs.append(f"{removed}{key}: {stylish_val(init_val, depth+1)}")
-            strs.append(f"{added}{key}: {stylish_val(new_val, depth+1)}")
+            strs.append(f"{removed}{key}: {stylish_val(init_val, depth + 1)}")
+            strs.append(f"{added}{key}: {stylish_val(new_val, depth + 1)}")
 
-    strs.append(f"{sep * (depth-1)}""}")
+    strs.append(f"{sep * (depth - 1)}""}")
     return '\n'.join(strs)

@@ -1,10 +1,7 @@
 import pytest
 from gendiff import (
     generate_diff,
-    open_file,
-    stylish,
-    plain,
-    json
+    open_file
 )
 
 
