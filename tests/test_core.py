@@ -11,32 +11,32 @@ from gendiff import (
 @pytest.fixture()
 def plane_json():
     return (
-        open_file('tests/fixtures/plain_files/file1.json'),
-        open_file('tests/fixtures/plain_files/file2.json')
+        'tests/fixtures/plain_files/file1.json',
+        'tests/fixtures/plain_files/file2.json'
     )
 
 
 @pytest.fixture()
 def plane_yml():
     return (
-        open_file('tests/fixtures/plain_files/file1.yml'),
-        open_file('tests/fixtures/plain_files/file2.yaml')
+        'tests/fixtures/plain_files/file1.yml',
+        'tests/fixtures/plain_files/file2.yaml'
     )
 
 
 @pytest.fixture()
 def nested_json():
     return (
-        open_file('tests/fixtures/nested_files/file1.json'),
-        open_file('tests/fixtures/nested_files/file2.json')
+        'tests/fixtures/nested_files/file1.json',
+        'tests/fixtures/nested_files/file2.json'
     )
 
 
 @pytest.fixture()
 def nested_yml():
     return (
-        open_file('tests/fixtures/nested_files/file1.yml'),
-        open_file('tests/fixtures/nested_files/file2.yml')
+        'tests/fixtures/nested_files/file1.yml',
+        'tests/fixtures/nested_files/file2.yml'
     )
 
 

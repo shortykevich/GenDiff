@@ -13,8 +13,8 @@ from gendiff.parser import (
 def main():
     args = get_arguments()
 
-    first_file = open_file(args.first_file)
-    second_file = open_file(args.second_file)
+    first_file = args.first_file
+    second_file = args.second_file
 
     match args.format:
         case 'plain_files':
