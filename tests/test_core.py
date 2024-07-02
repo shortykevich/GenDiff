@@ -11,16 +11,16 @@ from gendiff import (
 @pytest.fixture()
 def plane_json():
     return (
-        open_file('tests/fixtures/plain/file1.json'),
-        open_file('tests/fixtures/plain/file2.json')
+        open_file('tests/fixtures/plain_files/file1.json'),
+        open_file('tests/fixtures/plain_files/file2.json')
     )
 
 
 @pytest.fixture()
 def plane_yml():
     return (
-        open_file('tests/fixtures/plain/file1.yml'),
-        open_file('tests/fixtures/plain/file2.yaml')
+        open_file('tests/fixtures/plain_files/file1.yml'),
+        open_file('tests/fixtures/plain_files/file2.yaml')
     )
 
 
@@ -89,13 +89,13 @@ def test_generate_diff(plane_json, plane_yml,
 
 
 def test_open_file():
-    assert open_file("tests/fixtures/plain/file1.json") == {
+    assert open_file("tests/fixtures/plain_files/file1.json") == {
         "host": "hexlet.io",
         "timeout": 50,
         "proxy": "123.234.53.22",
         "follow": False
     }
-    assert open_file("tests/fixtures/plain/file2.yaml") == {
+    assert open_file("tests/fixtures/plain_files/file2.yaml") == {
         "timeout": 20,
         "verbose": True,
         "host": "hexlet.io"

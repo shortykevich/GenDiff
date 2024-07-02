@@ -17,7 +17,7 @@ def main():
     second_file = open_file(args.second_file)
 
     match args.format:
-        case 'plain':
+        case 'plain_files':
             print(generate_diff(first_file, second_file, plain))
         case 'json':
             print(generate_diff(first_file, second_file, json))
