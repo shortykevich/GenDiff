@@ -1,3 +1,4 @@
+from gendiff.core.formaters.universal_fromater import universal_formater
 from gendiff.constants import NOT_FOUND
 from gendiff.core.diff import (
     get_diff_key,
@@ -8,12 +9,9 @@ from gendiff.core.diff import (
 
 
 def stylish_val(value, depth, indent="    "):
-    if isinstance(value, bool):
-        return str(value).lower()
-    elif value is None:
-        return "null"
-    elif not isinstance(value, dict):
-        return value
+    checker = universal_formater(value)
+    if checker is not None:
+        return checker
 
     strs = ["{"]
     for key, val in value.items():
@@ -34,7 +32,7 @@ def stylish(tree, depth=1, sep="    "):
         val = get_diff_values(diff)
 
         if isinstance(val, list):
-            strs.append(f"{indent}{key}: {stylish(val, depth + 1)}")
+            strs.append(f"{indent}{key}: {stylish(val, depth+1)}")
             continue
 
         init_val = get_diff_init_value(val)

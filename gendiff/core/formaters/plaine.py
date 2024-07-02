@@ -1,3 +1,4 @@
+from gendiff.core.formaters.universal_fromater import universal_formater
 from gendiff.constants import NOT_FOUND
 from gendiff.core.diff import (
     get_diff_key,
@@ -8,13 +9,13 @@ from gendiff.core.diff import (
 
 
 def plain_val(value):
-    return (
-        "[complex value]" if isinstance(value, dict) else
-        f"'{value}'" if isinstance(value, str) else
-        str(value).lower() if isinstance(value, bool) else
-        "null" if value is None else
-        value
-    )
+    checker = universal_formater(value)
+    if isinstance(value, dict):
+        return "[complex value]"
+    elif isinstance(value, str):
+        return f"'{value}'"
+    else:
+        return checker
 
 
 def plain(tree, ancestors=''):
