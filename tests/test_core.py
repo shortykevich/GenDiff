@@ -54,36 +54,36 @@ def test_generate_diff(plane_json, plane_yml,
     nested_json1, nested_json2 = nested_json
     nested_yml1, nested_yml2 = nested_yml
 
-    assert generate_diff(plane_json1, plane_json2, stylish) == get_expected_string(
+    assert generate_diff(plane_json1, plane_json2, 'stylish') == get_expected_string(
         "tests/fixtures/expected/stylish_regular_expected.txt"
     )
-    assert generate_diff(plane_yml1, plane_yml2, stylish) == get_expected_string(
+    assert generate_diff(plane_yml1, plane_yml2, 'stylish') == get_expected_string(
         "tests/fixtures/expected/stylish_regular_expected.txt"
     )
-    assert generate_diff(nested_json1, nested_json2, stylish) == get_expected_string(
+    assert generate_diff(nested_json1, nested_json2, 'stylish') == get_expected_string(
         "tests/fixtures/expected/stylish_nested_expected.txt"
     )
-    assert generate_diff(nested_yml1, nested_yml2, stylish) == get_expected_string(
+    assert generate_diff(nested_yml1, nested_yml2, 'stylish') == get_expected_string(
         "tests/fixtures/expected/stylish_nested_expected.txt"
     )
 
-    assert generate_diff(plane_json1, plane_json2, plain) == get_expected_string(
+    assert generate_diff(plane_json1, plane_json2, 'plain') == get_expected_string(
         "tests/fixtures/expected/plain_regular_expected.txt"
     )
-    assert generate_diff(plane_yml1, plane_yml2, plain) == get_expected_string(
+    assert generate_diff(plane_yml1, plane_yml2, 'plain') == get_expected_string(
         "tests/fixtures/expected/plain_regular_expected.txt"
     )
-    assert generate_diff(nested_json1, nested_json2, plain) == get_expected_string(
+    assert generate_diff(nested_json1, nested_json2, 'plain') == get_expected_string(
         "tests/fixtures/expected/plain_nested_expected.txt"
     )
-    assert generate_diff(nested_yml1, nested_yml2, plain) == get_expected_string(
+    assert generate_diff(nested_yml1, nested_yml2, 'plain') == get_expected_string(
         "tests/fixtures/expected/plain_nested_expected.txt"
     )
 
-    assert generate_diff(plane_json1, plane_json2, json) == get_expected_string(
+    assert generate_diff(plane_json1, plane_json2, 'json') == get_expected_string(
         "tests/fixtures/expected/json_plain_expected.txt"
     )
-    assert generate_diff(nested_json1, nested_json2, json) == get_expected_string(
+    assert generate_diff(nested_json1, nested_json2, 'json') == get_expected_string(
         "tests/fixtures/expected/json_nested_expected.txt"
     )
 

@@ -1,6 +1,10 @@
 from gendiff.parser.parse import open_file
 from gendiff.constants import NOT_FOUND
-from gendiff.core.formaters import stylish
+from gendiff.core.formaters import (
+    stylish,
+    plain,
+    json
+)
 from gendiff.core.diff import (
     mkdiff,
     mkvalues
@@ -12,7 +16,7 @@ def merge_and_sort_files(file1, file2):
     return dict(sorted(merged_files.items()))
 
 
-def generate_diff(file1_path, file2_path, formater=stylish):
+def generate_diff(file1_path, file2_path, formater_name='stylish'):
     file1, file2 = open_file(file1_path), open_file(file2_path)
 
     def walk(dict1, dict2):
@@ -34,4 +38,11 @@ def generate_diff(file1_path, file2_path, formater=stylish):
                 )
         return diffs
 
-    return formater(walk(file1, file2))
+    diff = walk(file1, file2)
+    match formater_name:
+        case 'plain':
+            return plain(diff)
+        case 'json':
+            return json(diff)
+        case _:
+            return stylish(diff)
