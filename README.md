@@ -8,7 +8,7 @@
 CLI app that compares two config files (JSON or YAML) and return a [diff](https://en.wikipedia.org/wiki/Diff)
 ## [Installation](https://asciinema.org/a/e8QGoqTDKXnKXgat7z8iVel5s)
 ```
-git clone git@github.com:shortykevich/python-project-50.git
+git clone git@github.com:shortykevich/GenDiff.git && cd GenDiff
 make build
 make package-install
 ```
